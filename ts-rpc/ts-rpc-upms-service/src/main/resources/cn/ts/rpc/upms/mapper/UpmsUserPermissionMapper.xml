@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ts.rpc.upms.mapper.UpmsUserPermissionMapper">
+  <resultMap id="BaseResultMap" type="cn.ts.rpc.upms.model.UpmsUserPermission">
+    <constructor>
+      <idArg column="ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="USER_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PERMISSION_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TYPE" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+</mapper>

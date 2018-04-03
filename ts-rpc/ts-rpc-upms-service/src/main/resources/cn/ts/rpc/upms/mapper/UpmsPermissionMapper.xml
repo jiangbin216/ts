@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ts.rpc.upms.mapper.UpmsPermissionMapper">
+    <resultMap id="BaseResultMap" type="cn.ts.rpc.upms.model.UpmsPermission">
+        <constructor>
+            <idArg column="ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+            <arg column="SYSTEM_ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+            <arg column="PID" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+            <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="TYPE" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+            <arg column="PERMISSION_VALUE" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="URI" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="ICON" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="STATUS" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+            <arg column="CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+            <arg column="ORDERS" javaType="java.math.BigDecimal" jdbcType="DECIMAL"/>
+        </constructor>
+    </resultMap>
+
+    <!-- 根据用户获取所拥有的权限 -->
+    <select id="selectUpmsPermissionByUserId" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+        select * from upms_permission up where up.status=1 and up.id in (
+            select permission_id from upms_role_permission urp where urp.role_id in (
+              select uur.role_id role_id from upms_user_role uur where uur.user_id=#{userId,jdbcType=DECIMAL}
+            )
+            union
+            select permission_id from upms_user_permission uup1 where uup1.user_id=#{userId,jdbcType=DECIMAL} and uup1.type=1
+        )
+        and up.id not in (
+          select permission_id from upms_user_permission uup2 where uup2.user_id=#{userId,jdbcType=DECIMAL} and uup2.type=-1
+        ) order by up.orders asc
+    </select>
+</mapper>

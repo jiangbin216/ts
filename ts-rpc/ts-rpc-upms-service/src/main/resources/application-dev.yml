@@ -1,0 +1,44 @@
+debug: false
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl)))
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: system
+    password: 123456
+    druid:
+      filters: wall
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-open-prepared-statements: 30
+      time-between-eviction-runs-millis: 90000
+      min-evictable-idle-time-millis: 1800000
+      test-while-idle: true
+#      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: false
+      test-on-return: false
+dubbo:
+  scan: cn.ts.rpc.upms
+  application:
+    name: ts-rpc-upms-service
+  protocol:
+    name: dubbo
+    port: 20801
+  registry:
+#    check: false
+#    address: multicast://224.0.0.0:1112
+    address: zookeeper://127.0.0.1:2181
+    file: E:\\Export\\webapps\\${spring.dubbo.application.name}.${spring.dubbo.protocol.name}.${spring.dubbo.protocol.port}.cache
+mapper:
+  before: true
+  mappers: cn.ts.core.mybatis.mapper.CoreMapper
+  i-d-e-n-t-i-t-y: SELECT SQ_UPMS.NEXTVAL FROM DUAL
+pagehelper:
+#  helper-dialect: mysql
+  helper-dialect: oracle
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

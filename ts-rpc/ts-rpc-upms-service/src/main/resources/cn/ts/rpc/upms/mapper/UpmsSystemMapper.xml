@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ts.rpc.upms.mapper.UpmsSystemMapper">
+  <resultMap id="BaseResultMap" type="cn.ts.rpc.upms.model.UpmsSystem">
+    <constructor>
+      <idArg column="ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DESCRIPTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ICON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="THEME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BASEPATH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="ORDERS" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+</mapper>

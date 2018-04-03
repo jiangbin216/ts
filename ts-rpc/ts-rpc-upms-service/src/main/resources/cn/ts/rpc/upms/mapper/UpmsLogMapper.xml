@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ts.rpc.upms.mapper.UpmsLogMapper">
+  <resultMap id="BaseResultMap" type="cn.ts.rpc.upms.model.UpmsLog">
+    <constructor>
+      <idArg column="ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="DESCRIPTION" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USERNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="START_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="SPEND_TIME" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="BASE_PATH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="URI" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="URL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="METHOD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER_AGENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERMISSIONS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PARAMETER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RESULT" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+</mapper>

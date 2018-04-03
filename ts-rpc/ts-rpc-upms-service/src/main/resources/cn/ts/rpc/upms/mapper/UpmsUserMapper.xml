@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ts.rpc.upms.mapper.UpmsUserMapper">
+  <resultMap id="BaseResultMap" type="cn.ts.rpc.upms.model.UpmsUser">
+    <constructor>
+      <idArg column="ID" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="USERNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SALT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REALNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="AVATAR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PHONE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SEX" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="LOCKED" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="CREATE_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+</mapper>
