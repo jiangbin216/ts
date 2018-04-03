@@ -42,6 +42,3 @@ dubbo rpc服务模块。只要是api、model、service等
 mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.1.0.7.0 -Dpackaging=jar -Dfile=D:/ts/ojdbc6-11.1.0.7.0.jar
 ```
 
-### 演示动图
-
-http://git.oschina.net/foreveryang321/ts/blob/master/show.gif
